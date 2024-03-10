@@ -10,6 +10,7 @@ public class SnakeAndLadderGame {
 	private static final int NO_Play = 0;
 	private static final int LAADDER = 1;
 	private static final int SNAKE = 2;
+	private static final int WINNING_POSITON = 100;	
 	
 	public void showPosition() {
 		
@@ -17,16 +18,19 @@ public class SnakeAndLadderGame {
 		
 	}
 	
-	public void playGame(){
-		
+	public void playGame() {
 		Random random = new Random();
-		rollDie = random.nextInt(6)+1;
-		System.out.println("rollDie No :"+ rollDie);
-		diesOption= random.nextInt(3);
-		System.out.println("Dies Position :"+ diesOption);
 		
-		switch(diesOption)
-		{
+			while(playerPosition < WINNING_POSITON) {
+			rollDie = random.nextInt(6)+1;
+			System.out.println("rollDie No :"+ rollDie);
+			diesOption= random.nextInt(3);
+			System.out.println("Dies Position :"+ diesOption);
+			
+			System.out.println("---------------------");
+			
+		switch(diesOption) {
+		
 			case NO_Play:
 					playerPosition = playerPosition;
 					break;
@@ -40,19 +44,22 @@ public class SnakeAndLadderGame {
 					if(playerPosition < 0) {
 						
 						playerPosition = 0;
+						
 					}
 					break;
+					
+			}	
+			showPosition();
 		}
-		
 	}
 	
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to Snake And Ladder Game");
 		
-		SnakeAndLadderGame snakeandladdergame = new SnakeAndLadderGame();
-		snakeandladdergame.showPosition();
-		snakeandladdergame.playGame();
-		snakeandladdergame.showPosition();
+		SnakeAndLadderGame snakeandladdergame1 = new SnakeAndLadderGame();
+		snakeandladdergame1.showPosition();
+		snakeandladdergame1.playGame();
+		
 	}
 }
