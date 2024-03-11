@@ -11,6 +11,7 @@ public class SnakeAndLadderGame {
 	private static final int LAADDER = 1;
 	private static final int SNAKE = 2;
 	private static final int WINNING_POSITON = 100;	
+	private static int totalDie_Throw = 0;
 	
 	public void showPosition() {
 		
@@ -28,7 +29,7 @@ public class SnakeAndLadderGame {
 			System.out.println("Dies Position :"+ diesOption);
 			
 			System.out.println("---------------------");
-			
+			totalDie_Throw +=1;
 		switch(diesOption) {
 		
 			case NO_Play:
@@ -49,12 +50,16 @@ public class SnakeAndLadderGame {
 					break;
 					
 			}	
+			
 			if(playerPosition > WINNING_POSITON) {
 				
 				playerPosition = playerPosition - rollDie;
+				
 			}
 			showPosition();
+			
 		}
+			System.out.println("Total Dies Throw :"+ totalDie_Throw);
 	}
 	
 	public static void main(String[] args) {
