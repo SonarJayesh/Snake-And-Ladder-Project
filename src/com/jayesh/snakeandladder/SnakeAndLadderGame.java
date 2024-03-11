@@ -49,6 +49,10 @@ public class SnakeAndLadderGame {
 					break;
 					
 			}	
+			if(playerPosition > WINNING_POSITON) {
+				
+				playerPosition = playerPosition - rollDie;
+			}
 			showPosition();
 		}
 	}
